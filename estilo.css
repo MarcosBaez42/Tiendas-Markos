@@ -78,18 +78,34 @@ ul{
 }
 
 .carrito {
-    position: relative;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: transparent; /* Puedes ajustar el color de fondo según tus preferencias */
+    padding: 10px;
+    z-index: 1000; 
     margin-right: 20px;
     cursor: pointer;
 }
 
+.cantidad-carrito {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #f0b0f0;
+    color: white;
+    border-radius: 100%;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
 .cesta {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 40px;
     right: 0;
-    background-color: white;
-    border: 1px solid #ccc;
+    background-color: rgb(227, 82, 240);
+    border: 1px solid #eca5a5;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -107,6 +123,9 @@ ul{
 }
 
 #carrito-lista li {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+    align-items: center;
     border-bottom: 1px solid #ddd;
     padding: 10px;
 }
@@ -118,7 +137,6 @@ ul{
 .eliminar {
     cursor: pointer;
     color: red;
-    margin-left: 10px;
 }
 
 .tabla-carrito {
@@ -129,7 +147,7 @@ ul{
 
 .tabla-carrito th, .tabla-carrito td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 10px;
     text-align: left;
 }
 
@@ -162,7 +180,7 @@ ul{
     margin-top: 150px;
     padding-top: 20px;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
     gap: 50px;
     overflow: hidden;
     font-family:'Courier New', Courier, monospace ;

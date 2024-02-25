@@ -62,6 +62,7 @@ const subtotal = document.getElementById('subtotal');
 const total = document.getElementById('total');
 const carrito = [];
 
+
 function agregarAlCarrito(producto) {
     const existente = carrito.find(item => item.id === cuadros.indexOf(producto));
 
@@ -95,20 +96,29 @@ function eliminarDelCarrito(id) {
 
 function actualizarCarrito() {
     carritoLista.innerHTML = '';
-    let subtotalPrecio = 0;
+    let totalPrecio = 0;
 
     carrito.forEach(item => {
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `${item.texto} x${item.cantidad} - $${(item.precio * item.cantidad).toFixed(2)} <span class="eliminar" onclick="eliminarDelCarrito(${item.id})">x</span>`;
+        const listItem = document.createElement('tr');
+        listItem.innerHTML = `
+            <td>${item.id + 1}</td>
+            <td>${item.texto}</td>
+            <td>${item.cantidad}</td>
+            <td>$${item.precio.toFixed(2)}</td>
+            <td>$${(item.precio * item.cantidad).toFixed(2)}</td>
+            <td><span class="eliminar" onclick="eliminarDelCarrito(${item.id})">❌</span></td>
+        `;
         carritoLista.appendChild(listItem);
-        subtotalPrecio += item.precio * item.cantidad;
+        totalPrecio += item.precio * item.cantidad;
     });
 
     const cantidadTotal = carrito.reduce((total, item) => total + item.cantidad, 0);
     cantidadCarrito.textContent = cantidadTotal;
 
-    subtotal.textContent = `Subtotal: $${subtotalPrecio.toFixed(2)}`;
-    total.textContent = `Total: $${subtotalPrecio.toFixed(2)}`;
+    total.textContent = `Total: $${totalPrecio.toFixed(2)}`;
+
+    // Mostrar la cesta siempre
+    cesta.style.display = 'block';
 
     if (carrito.length > 0) {
         cesta.style.display = 'block';

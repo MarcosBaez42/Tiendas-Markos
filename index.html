@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    
+    <title>Tiendas Marcos</title>
+</head>
+<body>
+    <div class="logo">
+        
+    </div>
+    <div class="titulo">
+        <a href="index.html"><img class="imglogo" src="./img/logo pants.png" alt=""></a>
+        <h1 class="title">Marko Pants & Lisgines</h1>
+        
+    </div>
+    
+    <div class="menu">
+        <ol class="menus">
+
+            <ul> <a  href=""> INICIO </a></ul>
+
+            <ul> <a  href=""> CONTACTO </a></ul>
+
+            <ul> <a  href=""> PANTALONES </a></ul>
+
+            
+
+            <ul class="imgcontent"><input class="busqueda" type="text" placeholder="Buscar..."> <a href=""><img class="imglogo" src="./img/busqueda.png" alt="Icono de busqueda"> </a></ul>
+        </ol>
+    </div>
+    <div class="carrito">
+        <img class="imgcarrito" src="./img/carrito.png" alt="">
+        <span class="cantidad-carrito" id="cantidad-carrito">0</span>
+        <div class="cesta" id="cesta">
+            <h3>Carrito de Compras</h3>
+            <table class="tabla-carrito">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del Artículo</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody id="carrito-lista"></tbody>
+            </table>
+            <p id="subtotal">Subtotal: $0.00</p>
+            <p id="total">Total: $0.00</p>
+            <button id="boton-comprar" onclick="comprarArticulos()">Comprar Artículos</button>
+        </div>
+    </div>
+    
+            
+    <div class="contenedor" id="contenedor"></div>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
